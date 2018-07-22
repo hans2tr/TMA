@@ -16,7 +16,7 @@
 			id="usernamela" style="color: red"></label><br> <label>Password:</label><br>
 		<input type="password" name="pass" id="pass" onmouseover="checkValidate()">
 		<label id="passla" style="color: red"></label> <br>
-		<br><label id="login"></label>
+		<br><label id="login"></label><a href="register">register</a>
 	</form>
 
 	<script type="text/javascript">
