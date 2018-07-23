@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.model.Account;
@@ -15,11 +16,16 @@ public class LoginController {
 	private Account account = new Account();
 
 	@RequestMapping("/")
-	public String showLogin() {
-		return "login";
+	public ModelAndView showLogin() {
+		return new ModelAndView("login");
 	}
 	
-	@RequestMapping("/mainpage")
+	@RequestMapping("/login")
+	public ModelAndView showLoginAgain() {
+		return new ModelAndView("login");
+	}
+	
+	@RequestMapping(value="/mainpage")
 	public ModelAndView login(HttpServletRequest req, HttpServletResponse res, HttpSession session) {
 		String username = req.getParameter("username");
 		String pass = req.getParameter("pass");
@@ -30,7 +36,7 @@ public class LoginController {
 			return new ModelAndView("login","message","alert('login error')");
 		}
 	}
-	@RequestMapping("/logout")
+	@RequestMapping(value="/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("username");
 		return "login";
