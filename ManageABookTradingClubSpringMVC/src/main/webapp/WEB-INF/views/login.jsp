@@ -46,7 +46,7 @@ form{
 		<label id="usernamela" style="color: red; margin-left: 50px;"></label><br>
 		<input type="password" name="pass" id="pass" onmouseover="checkValidate()" placeholder="Password..."><br>
 		<label id="passla" style="color: red; margin-left: 50px;"></label><br>
-		<input id="login" type='submit' value='Login' disabled='disabled' onmouseover='checkValidate()'>
+		<input id="login" type='submit' value='Login' disabled="disabled" onmouseover="checkValidate()">
 		<label id=""></label><br><a href="register">register</a>
 	</form>
 

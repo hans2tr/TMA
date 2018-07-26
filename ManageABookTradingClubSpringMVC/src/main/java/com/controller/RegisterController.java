@@ -1,6 +1,5 @@
 package com.controller;
 
-import java.lang.reflect.Method;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,7 +23,7 @@ public class RegisterController {
 		String email = req.getParameter("email");
 		String phone = req.getParameter("phone");
 		
-		if(!checkPhone(phone)) {
+		if((!checkPhone(phone))&&phone!="") {
 			return new ModelAndView("register","message","alert('phone number is incorrect!!!')");
 		}
 

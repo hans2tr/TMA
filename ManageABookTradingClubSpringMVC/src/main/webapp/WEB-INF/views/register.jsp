@@ -6,7 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>Register</title>
 <style type="text/css">
-input[type=text],input[type=password],input[type=submit]{
+input[type=text],input[type=password],input[type=submit],input[type=email]{
 	width: 70%;
 	box-sizing: border-box;
 	border: 2px solid #ccc;
@@ -32,6 +32,10 @@ form{
 	margin-top: 100px;
 	background-color: #f2f2f2
 }
+select {
+	border: 2px solid #ccc;
+	border-radius: 5px;
+}
 </style>
 </head>
 <body>
@@ -42,9 +46,9 @@ ${message}
 <h1>Register</h1>
 <input type="text" name="username" id="username" placeholder="User name..." required="required" ><br><br>
 <input type="password" name="pass" id="pass" placeholder="Password..." required="required"><br>
-<label style="margin-left: 60px">Showpass?</label><input id="checkBox" type="checkbox" onclick="change()">
+<label style="margin-left: 65px">Showpass?</label><input id="checkBox" type="checkbox" onclick="change()">
 <br><br>
-<label style="margin-left: 60px">Gender:</label>
+<label style="margin-left: 65px">Gender:</label>
 <select id="select" onclick="">
 	<option value="Male">Male</option>
 	<option value="Female">Female</option>
@@ -52,7 +56,7 @@ ${message}
 </select>
 <br><br>
 <input type="text" name="name" id="name" placeholder="Your name..."><br><br>
-<input type="text" name="email" id="email" placeholder="Your email..."><br><br>
+<input type="email" name="email" id="email" placeholder="Your email..."><br><br>
 <input type="text" name="phone" id="phone" placeholder="Your phone number..."><br><br>
 <input type="submit" name="register" id="register" value="Register" ><br>
 <a href="login">Login</a>
