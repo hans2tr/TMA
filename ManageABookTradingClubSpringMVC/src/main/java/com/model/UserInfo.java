@@ -1,21 +1,51 @@
 package com.model;
 
-public class UserInfo {
-	private int id;
-	private String name;
-	private String email;
-	private String number;
+import java.util.List;
 
-	public UserInfo(int id, String name, String email, String number) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.number = number;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="USERINFOR")
+public class UserInfo {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	@Column(name="NAME ")
+	private String name;
+	
+	@Column(name="EMAIL")
+	private String email;
+	
+	@Column(name="PHONE")
+	private String phonenumber;
+	
+	@Column(name="DECENTRALIZATION")
+	private boolean decentralization;
+	
+	@OneToOne()
+	@JoinColumn(name="IDACCOUNT")
+	private Account idAccount;
+	
+	@OneToMany(mappedBy = "userInfo",fetch = FetchType.LAZY)
+	private List<Book> book;
+
+	public List<Book> getBook() {
+		return book;
 	}
 
-	public UserInfo() {
-		super();
+	public void setBook(List<Book> book) {
+		this.book = book;
 	}
 
 	public int getId() {
@@ -43,11 +73,35 @@ public class UserInfo {
 	}
 
 	public String getNumber() {
-		return number;
+		return phonenumber;
 	}
 
-	public void setNumber(String number) {
-		this.number = number;
+	public void setNumber(String phonenumber) {
+		this.phonenumber = phonenumber;
+	}
+
+	public String getPhonenumber() {
+		return phonenumber;
+	}
+
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
+	}
+
+	public boolean isDecentralization() {
+		return decentralization;
+	}
+
+	public void setDecentralization(boolean decentralization) {
+		this.decentralization = decentralization;
+	}
+
+	public Account getIdAccount() {
+		return idAccount;
+	}
+
+	public void setIdAccount(Account idAccount) {
+		this.idAccount = idAccount;
 	}
 
 }

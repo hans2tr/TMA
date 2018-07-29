@@ -1,0 +1,10 @@
+com\dao\AccountDao.class
+com\model\Book.class
+com\controller\LoginController.class
+com\dao\Dao.class
+com\model\Account.class
+com\controller\InfoController.class
+com\controller\MainPageController.class
+com\model\UserInfo.class
+com\controller\RegisterController.class
+com\model\TypeBook.class

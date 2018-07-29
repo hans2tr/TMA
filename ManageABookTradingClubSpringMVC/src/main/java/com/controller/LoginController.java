@@ -10,30 +10,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.dao.AccountDao;
 import com.model.Account;
 
 @Controller
 public class LoginController {
 	
-	private Account account = new Account();
+	@Autowired
+	private AccountDao account;
 
-	@RequestMapping("/")
+	@RequestMapping({"/","/login"})
 	public ModelAndView showLogin() {
 		return new ModelAndView("login");
 	}
-	
-	@RequestMapping("/login")
-	public ModelAndView showLoginAgain() {
-		return new ModelAndView("login");
-	}
+//	
+//	@RequestMapping("/login")
+//	public ModelAndView showLoginAgain() {
+//		return new ModelAndView("login");
+//	}
 	
 	@RequestMapping(value="/mainpage")
 	public ModelAndView login(HttpServletRequest req, HttpServletResponse res, HttpSession session) {
 		String username = req.getParameter("username");
 		String pass = req.getParameter("pass");
-		if (account.checkAccount(username, pass)) {
+		Account account =this.account.checkLogin(username, pass);
+		if (account!=null) {
 			session.setAttribute("username",username);
-			return new ModelAndView("mainpage");
+			return new ModelAndView("mainpage","account",account);
 		} else {
 			return new ModelAndView("login","message","alert('login error')");
 		}

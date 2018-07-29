@@ -1,19 +1,37 @@
 package com.model;
 
-public class Account {
-	private String id;
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="ACCOUNT")
+public class Account implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
+	@Column(name="USERNAME")
 	private String username;
+	
+	@Column(name="PASS")
 	private String password;
+	
+	@OneToOne(mappedBy="idAccount",fetch = FetchType.LAZY)
+	private UserInfo userInfo;
 
-	public Account(String id, String username, String password) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.password = password;
-	}
-
-	public Account() {
-	}
 
 	public String getUsername() {
 		return username;
@@ -30,18 +48,28 @@ public class Account {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getId() {
+	public boolean checkAccount(String username, String pass) {
+			if(username.equals("han")&&pass.equals("123")) {
+				return true;
+			}
+		return false;
+	}
+
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public boolean checkAccount(String username, String pass) {
-		if(username.equalsIgnoreCase("Han")&&pass.equalsIgnoreCase("123")) {
-			return true;
-		}
-		return false;
+	public UserInfo getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
 	}
 }
