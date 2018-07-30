@@ -49,7 +49,7 @@ ${message}
 <label style="margin-left: 65px">Showpass?</label><input id="checkBox" type="checkbox" onclick="change()">
 <br><br>
 <label style="margin-left: 65px">Gender:</label>
-<select id="select" onclick="">
+<select id="gender" name="gender">
 	<option value="Male">Male</option>
 	<option value="Female">Female</option>
 	<option value="Other">Other</option>

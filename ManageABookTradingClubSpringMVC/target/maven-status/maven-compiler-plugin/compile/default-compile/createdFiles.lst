@@ -2,9 +2,11 @@ com\dao\AccountDao.class
 com\model\Book.class
 com\controller\LoginController.class
 com\dao\Dao.class
+com\dao\UserInfoDao.class
 com\model\Account.class
 com\controller\InfoController.class
 com\controller\MainPageController.class
 com\model\UserInfo.class
 com\controller\RegisterController.class
+com\dao\AbstractDao.class
 com\model\TypeBook.class

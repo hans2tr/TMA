@@ -40,7 +40,7 @@ form{
 	<script type="text/javascript">
 		${message}
 	</script>
-	<form action="mainpage" method="post" >
+	<form action="loginSuccess" method="post" >
 		<h1>Login</h1>
 		<input type="text" name="username" id="username" onmouseover="checkValidate()" placeholder="User name.." ><br>
 		<label id="usernamela" style="color: red; margin-left: 50px;"></label><br>

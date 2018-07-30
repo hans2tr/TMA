@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,31 +79,31 @@ select {
 		<ul>
 			<li><a href="home">Home</a></li>
 			<li id="a" onmouseover="test()"><a href="">Type</a></li>
-			<li>Hello! <a href="infor">${sessionScope.username}</a><a href="logout" style="margin-left: 15px">logout</a></li>
+			<li>Hello! <a href="infoForm">${sessionScope.username}</a><a href="logout" style="margin-left: 15px">logout</a><input type="hidden" name="${account.username}"></li>
 		</ul>
 	</form>
 </div>
-<form id="form" action="inform">
+<form:form id="form" action="update" commandName="account">
 <h1>Your information</h1>
 <label >User name:</label><br>
-<input type="text" name="username"  id="username" placeholder="User name..." required="required" disabled="disabled" value="Pham Dang Hai"><br><br>
+<input type="text" name="username"  id="username" placeholder="User name..." required="required" disabled="disabled" value="${userInfo.account.username}"><br><br>
 <label>Pass:</label><br>
-<input type="password" name="pass" id="pass" placeholder="Password..." required="required" disabled="disabled" value="Pham Dang Hai"><br>
+<input type="password" name="pass" id="pass" placeholder="Password..." required="required" disabled="disabled" value="${userInfo.account.password}"><br>
 <label style="margin-left: 65px">Showpass?</label><input id="checkBox" type="checkbox" onclick="change()">
 <br><br>
 <label style="margin-left: 65px">Gender:</label>
-<input type="text" name="gender" id="gender" placeholder="gender..." disabled="disabled">
+<input type="text" name="gender" id="gender" placeholder="gender..." disabled="disabled" value="${userInfo.gender}">
 <br><br>
 <label>Your name:</label><br>
-<input type="text" name="name" id="name" placeholder="Your name..." disabled="disabled"><br><br>
+<input type="text" name="name" id="name" placeholder="Your name..." disabled="disabled" value="${userInfo.name}"><br><br>
 <label>Email:</label><br>
-<input type="email" name="email" id="email" placeholder="Your email..." disabled="disabled"><br><br>
+<input type="email" name="email" id="email" placeholder="Your email..." disabled="disabled" value="${userInfo.email}"><br><br>
 <label>Phone:</label><br>
-<input type="text" name="phone" id="phone" placeholder="Your phone number..." disabled="disabled"><br><br>
+<input type="text" name="phone" id="phone" placeholder="Your phone number..." disabled="disabled" value="${userInfo.phonenumber}"><br><br>
 <input type ='submit' id='update' name='update' value='update' disabled="disabled">
 <input type="button" name="Edit" id="edit" value="Edit" onclick="editt()">
 <input id="buttonAdd" type="button" value="Add Book" onclick="showAddBook()">
-</form>
+</form:form>
 <div id="showAdd"> </div>
 <script type="text/javascript">
 	function change(){

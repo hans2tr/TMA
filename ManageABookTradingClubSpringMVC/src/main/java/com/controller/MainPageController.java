@@ -14,8 +14,5 @@ public class MainPageController {
 		
 		return new ModelAndView("mainpage");
 	}
-	@RequestMapping(value="/infor")
-	public ModelAndView showInfor() {
-		return new ModelAndView("informationform");
-	}
+	
 }

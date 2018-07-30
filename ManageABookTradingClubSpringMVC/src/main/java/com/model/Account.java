@@ -29,7 +29,7 @@ public class Account implements Serializable{
 	@Column(name="PASS")
 	private String password;
 	
-	@OneToOne(mappedBy="idAccount",fetch = FetchType.LAZY)
+	@OneToOne(mappedBy="account",fetch = FetchType.LAZY)
 	private UserInfo userInfo;
 
 

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dao.AccountDao;
@@ -29,13 +30,12 @@ public class LoginController {
 //		return new ModelAndView("login");
 //	}
 	
-	@RequestMapping(value="/mainpage")
-	public ModelAndView login(HttpServletRequest req, HttpServletResponse res, HttpSession session) {
-		String username = req.getParameter("username");
-		String pass = req.getParameter("pass");
-		Account account =this.account.checkLogin(username, pass);
-		if (account!=null) {
+	@RequestMapping(value="/loginSuccess")
+	public ModelAndView login(@RequestParam("username")String username,@RequestParam("pass")String pass, HttpSession session) {
+		Account account =this.account.getAccount(username);
+		if (account!=null&&account.getPassword().equals(pass)) {
 			session.setAttribute("username",username);
+			this.account.getList();
 			return new ModelAndView("mainpage","account",account);
 		} else {
 			return new ModelAndView("login","message","alert('login error')");

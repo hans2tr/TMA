@@ -14,30 +14,33 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="USERINFOR")
+@Table(name = "USERINFOR")
 public class UserInfo {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="NAME ")
+
+	@Column(name = "NAME ")
 	private String name;
-	
-	@Column(name="EMAIL")
+
+	@Column(name = "EMAIL")
 	private String email;
-	
-	@Column(name="PHONE")
+
+	@Column(name = "PHONE")
 	private String phonenumber;
-	
-	@Column(name="DECENTRALIZATION")
+
+	@Column(name = "DECENTRALIZATION")
 	private boolean decentralization;
-	
+
+	@Column(name = "GENDER")
+	private String gender;
+
 	@OneToOne()
-	@JoinColumn(name="IDACCOUNT")
-	private Account idAccount;
-	
-	@OneToMany(mappedBy = "userInfo",fetch = FetchType.LAZY)
+	@JoinColumn(name = "IDACCOUNT")
+	private Account account;
+
+	@OneToMany(mappedBy = "userInfo", fetch = FetchType.LAZY)
 	private List<Book> book;
 
 	public List<Book> getBook() {
@@ -72,14 +75,6 @@ public class UserInfo {
 		this.email = email;
 	}
 
-	public String getNumber() {
-		return phonenumber;
-	}
-
-	public void setNumber(String phonenumber) {
-		this.phonenumber = phonenumber;
-	}
-
 	public String getPhonenumber() {
 		return phonenumber;
 	}
@@ -96,12 +91,20 @@ public class UserInfo {
 		this.decentralization = decentralization;
 	}
 
-	public Account getIdAccount() {
-		return idAccount;
+	public Account getAccount() {
+		return account;
 	}
 
-	public void setIdAccount(Account idAccount) {
-		this.idAccount = idAccount;
+	public void setAccount(Account Account) {
+		this.account = Account;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 }

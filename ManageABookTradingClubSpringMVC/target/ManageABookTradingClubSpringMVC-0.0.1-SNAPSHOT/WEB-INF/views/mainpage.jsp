@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,7 +54,7 @@ button {
 		<ul>
 			<li><a href="home">Home</a></li>
 			<li id="a" onclick="test()"><a href="">Type</a></li>
-			<li>Hello! <a href="infor">${sessionScope.username} </a><a href="logout" style="margin-left: 15px">logout</a></li>
+			<li>Hello! <a href="infoForm" id="username" >${sessionScope.username}</a><a href="logout" style="margin-left: 15px">logout</a><input type="hidden" name="${account.username}"> </li>
 		</ul>
 	</form>
 </div>
