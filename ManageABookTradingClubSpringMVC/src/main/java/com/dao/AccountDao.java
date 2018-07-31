@@ -2,15 +2,13 @@ package com.dao;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.springframework.stereotype.Repository;
 
 import com.model.Account;
 
-@Transactional
+@Repository
 public class AccountDao extends AbstractDao {
 
 	@SuppressWarnings("unchecked")
@@ -26,16 +24,6 @@ public class AccountDao extends AbstractDao {
 		return list;
 	}
 
-	public Account checkLogin(String username, String pass) {
-		List<Account> list = this.getList();
-		for (int i = 0; i < list.size(); i++) {
-			if (username.equals(list.get(i).getUsername()) && pass.equals(list.get(i).getPassword())) {
-				return list.get(i);
-			}
-		}
-		return null;
-	}
-
 	@SuppressWarnings("unchecked")
 	public Account getAccount(String username) {
 		Session session = this.sessionFactory.getCurrentSession();
@@ -49,6 +37,10 @@ public class AccountDao extends AbstractDao {
 
 	public void save(Account account) {
 		Session session = this.sessionFactory.getCurrentSession();
-		session.save(account);
+		session.persist(account);
+	}
+	public void update(Account account) {
+		Session session = this.sessionFactory.getCurrentSession();
+		session.merge(account);
 	}
 }

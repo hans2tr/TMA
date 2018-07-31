@@ -48,7 +48,33 @@
 	<bean id="accountDAO" class="com.dao.AccountDao">
      <property name="sessionFactory" ref="mySessionFactory" />
  	</bean>
+ 	
  	<bean id="userInfoDAO" class="com.dao.UserInfoDao">
      <property name="sessionFactory" ref="mySessionFactory" />
  	</bean>
+ 	
+ 	<bean id="typeBookDao" class="com.dao.TypeBookDao">
+     <property name="sessionFactory" ref="mySessionFactory" />
+ 	</bean>
+ 	
+ 	<bean id="bookDao" class="com.dao.BookDao">
+     <property name="sessionFactory" ref="mySessionFactory" />
+ 	</bean>
+ 	
+ 	<bean id="accountService" class="com.service.AccountService">
+     <property name="accountDao" ref="accountDAO" />
+ 	</bean>
+ 	
+ 	<bean id="userInfoService" class="com.service.UserInfoService">
+     <property name="userInfoDao" ref="userInfoDAO" />
+ 	</bean>
+ 	
+ 	<bean id="typeBookService" class="com.service.TypeBookService">
+     <property name="typeBookDao" ref="typeBookDao" />
+ 	</bean>
+ 	
+ 	<bean id="bookService" class="com.service.BookService">
+     <property name="bookDao" ref="bookDao" />
+ 	</bean>
+
 </beans>

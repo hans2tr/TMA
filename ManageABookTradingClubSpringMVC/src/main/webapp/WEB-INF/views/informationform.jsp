@@ -114,6 +114,7 @@ select {
 	function editt(){
 		
 		document.getElementById("username").disabled = "";
+		document.getElementById("username").type = "hidden";
 		document.getElementById("pass").disabled = "";
 		document.getElementById("gender").disabled = "";
 		document.getElementById("name").disabled = "";
@@ -123,19 +124,20 @@ select {
 		document.getElementById("update").disabled = "";
 	}
 	function showAddBook(){
-		var a = "<form action='inform'>"
+		var a = "<form action='addBook'>"
 			+"<h1>Add book</h1>"
 			+"<label>Name:</label><br>"
-			+"<input type='text' name='name' id='name'  required='required' value=''>"
+			+"<input type='text' name='nameBook' id='nameBook'  required='required' value=''>"
 			+"<br><br>"
 			+"<label>Type:</label>"
-			+"<select id='select' onclick='otherr()'>"
-			+"<option value='Male'>Male</option>"
-			+"<option value='Female'>Female</option>"
+			+"<select id='select' name='typeBook' onclick='otherr()'>"
+			+"<c:forEach items='${typeList}' var='list'>"
+			+"<option value='${list.name}'>${list.name}</option>"
+			+"</c:forEach>"
 			+"<option value='Other'>Other</option>"
 			+"</select><br>"
 			+"<label>Other:</label><br>"
-			+"<input type='text' name='type' id='type' required='required' disabled='disabled'><br><br>"
+			+"<input type='hidden' name='typeBookIn' id='typeBookIn' required='required' value=''><br><br>"
 			+"<input type='submit' name='add' id='add' value='Add'>"
 			+"<input id='buttonClose' name='buttonClose' type='button' value='Close' onclick='removeShowAddBook()'>"
 			+"</form>";
@@ -147,7 +149,7 @@ select {
 	}
 	function otherr(){
 		var a = document.getElementById("select").value;
-		document.getElementById("type").disabled = (a=="Other")?"":"disabled";
+		document.getElementById("typeBookIn").type = (a=="Other")?"text":"hidden";
 	}
 </script>
 </body>

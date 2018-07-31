@@ -5,9 +5,11 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
+
 import com.model.UserInfo;
 
-@Transactional
+@Repository
 public class UserInfoDao extends AbstractDao{
 	
 		@SuppressWarnings("unchecked")
@@ -20,5 +22,9 @@ public class UserInfoDao extends AbstractDao{
 		public void save(UserInfo userInfo) {
 			Session session = this.sessionFactory.getCurrentSession();
 			session.persist(userInfo);
+		}
+		public void update(UserInfo userInfo) {
+			Session session = this.sessionFactory.getCurrentSession();
+			session.merge(userInfo);
 		}
 }

@@ -61,60 +61,14 @@ button {
 <br><br>
 <div>
 	<form action="" id="single">
+	<c:forEach items="${bookList}" var="list">
 	<ul style="border: 2px solid #ccc;border-radius: 5px; width: 20%">
 		<li style="margin: auto; margin-top: 5px"> <img alt="where my img?" src="https://www.w3schools.com/images/w3schools_green.jpg" width="150px" height="150px"> </li><br>
-		<li>Name: Baruto </li>
-		<li>Posted by: Pham Dang Hai </li>
+		<li>Name: ${list.name } </li>
+		<li>Posted by: ${list.userInfo.name }</li>
 		<li><button>Trade</button></li>
 	</ul>
-	<ul style="border: 2px solid #ccc;border-radius: 5px; width: 20%">
-		<li style="margin: auto; margin-top: 5px"> <img alt="where my img?" src="https://www.w3schools.com/images/w3schools_green.jpg" width="150px" height="150px"> </li><br>
-		<li>Name: Baruto </li>
-		<li>Posted by: Pham Dang Hai </li>
-		<li><button>Trade</button></li>
-	</ul>
-	<ul style="border: 2px solid #ccc;border-radius: 5px; width: 20%">
-		<li style="margin: auto; margin-top: 5px"> <img alt="where my img?" src="https://www.w3schools.com/images/w3schools_green.jpg" width="150px" height="150px"> </li><br>
-		<li>Name: Baruto </li>
-		<li>Posted by: Pham Dang Hai </li>
-		<li><button>Trade</button></li>
-	</ul>
-	<ul style="border: 2px solid #ccc;border-radius: 5px; width: 20%">
-		<li style="margin: auto; margin-top: 5px"> <img alt="where my img?" src="https://www.w3schools.com/images/w3schools_green.jpg" width="150px" height="150px"> </li><br>
-		<li>Name: Baruto </li>
-		<li>Posted by: Pham Dang Hai </li>
-		<li><button>Trade</button></li>
-	</ul>
-	<ul style="border: 2px solid #ccc;border-radius: 5px; width: 20%">
-		<li style="margin: auto; margin-top: 5px"> <img alt="where my img?" src="https://www.w3schools.com/images/w3schools_green.jpg" width="150px" height="150px"> </li><br>
-		<li>Name: Baruto </li>
-		<li>Posted by: Pham Dang Hai </li>
-		<li><button>Trade</button></li>
-	</ul>
-	<ul style="border: 2px solid #ccc;border-radius: 5px; width: 20%">
-		<li style="margin: auto; margin-top: 5px"> <img alt="where my img?" src="http://quantri.vuthu.edu.vn/UploadImages/thdungnghia/admin/books1_onhi.jpg" width="150px" height="150px"> </li><br>
-		<li>Name: Baruto </li>
-		<li>Posted by:  Dang Hai </li>
-		<li><button>Trade</button></li>
-	</ul>
-	<ul style="border: 2px solid #ccc;border-radius: 5px; width: 20%">
-		<li style="margin: auto; margin-top: 5px"> <img alt="where my img?" src="https://www.w3schools.com/images/w3schools_green.jpg" width="150px" height="150px"> </li><br>
-		<li>Name: Baruto </li>
-		<li>Posted by: Pham  Hai </li>
-		<li><button>Trade</button></li>
-	</ul>
-	<ul style="border: 2px solid #ccc;border-radius: 5px; width: 20%">
-		<li style="margin: auto; margin-top: 5px"> <img alt="where my img?" src="https://www.w3schools.com/images/w3schools_green.jpg" width="150px" height="150px"> </li><br>
-		<li>Name: Baruto </li>
-		<li>Posted by:  Dang Hai </li>
-		<li><button>Trade</button></li>
-	</ul>
-	<ul style="border: 2px solid #ccc;border-radius: 5px; width: 20%">
-		<li style="margin: auto; margin-top: 5px"> <img alt="where my img?" src="https://www.w3schools.com/images/w3schools_green.jpg" width="150px" height="150px"> </li><br>
-		<li>Name: Baruto </li>
-		<li>Posted by: Pham  Hai </li>
-		<li><button>Trade</button></li>
-	</ul>
+	</c:forEach>
 	
 	</form>
 </div>
